@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package kr.or.lightsalt.kotloid
+package kr.es6.kotloid
 
 import android.annotation.SuppressLint
 import android.content.*

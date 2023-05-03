@@ -1,8 +1,8 @@
-package kr.or.lightsalt.kotloid
+package kr.es6.kotloid
 
 import android.os.Build
-import kr.or.lightsalt.longDatePattern
-import kr.or.lightsalt.monthAndDayPattern
+import kr.es6.kotlib.longDatePattern
+import kr.es6.kotlib.monthAndDayPattern
 import org.joda.time.LocalDate
 import java.text.DateFormat
 import java.text.SimpleDateFormat

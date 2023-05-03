@@ -1,30 +1,33 @@
 buildscript {
-	ext.kotlin_ver = project.findProperty('KOTLIN_VERSION') ?: '+'
+	ext.kotlinVersion = project.findProperty('kr.es6.kotlin.version') ?: '+'
 
 	repositories {
 		google()
-		jcenter()
+		mavenCentral()
 	}
 
 	dependencies {
-		classpath 'com.android.tools.build:gradle:3.5.3'
-		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_ver"
-		classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+		classpath 'com.android.tools.build:gradle:3.5.4'
+		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
 	}
 }
 
-apply plugin: 'maven'
-apply plugin: 'com.android.library'
-apply plugin: 'com.jfrog.bintray'
+plugins {
+	id 'com.android.library'
+	id 'maven-publish'
+	id 'kotlin-android'
+	id 'kotlin-kapt'
+}
 
 android {
-	compileSdkVersion 29
-	buildToolsVersion '29.0.3'
+	compileSdkVersion 33
+	buildToolsVersion '33.0.2'
+	namespace 'kr.es6.kotloid'
 	useLibrary 'org.apache.http.legacy'
 
 	defaultConfig {
 		minSdkVersion 14
-		targetSdkVersion 29
+		targetSdkVersion 33
 	}
 
 	buildTypes {
@@ -32,6 +35,11 @@ android {
 			minifyEnabled false
 			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 		}
+	}
+
+	compileOptions {
+		sourceCompatibility = JavaVersion.VERSION_17
+		targetCompatibility = JavaVersion.VERSION_17
 	}
 
 	dataBinding {
@@ -44,8 +52,6 @@ android {
 		androidTest.java.srcDirs += 'src/androidTest/kotlin'
 	}
 }
-
-apply plugin: 'kotlin-android'
 
 task sourcesJar(type: Jar) {
 	from android.sourceSets.main.java.srcDirs
@@ -64,18 +70,12 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 	from javadoc.destinationDir
 }
 
-artifacts {
-	archives javadocJar
-	archives sourcesJar
-}
-
-archivesBaseName = 'kotloid'
-group 'kr.or.lightsalt'
-version project.findProperty('KOTLIB_VERSION')
+group 'kr.es6.kotloid'
+version project.findProperty('kr.es6.kotlib.version')
 
 repositories {
 	google()
-	jcenter()
+	mavenCentral()
 	maven { url 'https://jitpack.io' }
 }
 
@@ -83,16 +83,17 @@ dependencies {
 	try {
 		api project(':kotlib')
 	} catch (Exception ignored) {
-		api 'com.github.light-and-salt:kotlib:-SNAPSHOT'
+		api 'com.github.es6kr:kotlib:v0.0.3'
 	}
-	api 'androidx.appcompat:appcompat:1.1.0'
-	api 'androidx.navigation:navigation-fragment-ktx:2.2.1'
-	api 'androidx.navigation:navigation-ui-ktx:2.2.1'
-	api 'com.github.delight-im:Android-AdvancedWebView:v3.0.0'
-	api 'com.google.android.material:material:1.1.0'
-	api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_ver"
-	testImplementation "junit:junit:4.12"
-	testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_ver"
+	api 'androidx.appcompat:appcompat:1.6.1'
+	api 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+	api 'androidx.navigation:navigation-ui-ktx:2.5.3'
+	api 'com.github.delight-im:Android-AdvancedWebView:v3.2.1'
+	api 'com.google.android.material:material:1.8.0'
+	api 'joda-time:joda-time:2.12.5'
+	api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+	testImplementation "junit:junit:4.13.2"
+	testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
 }
 
 Properties properties = new Properties()
@@ -101,19 +102,3 @@ try {
 } catch (Exception ignore) {
 }
 
-bintray {
-	user = properties.getProperty('user')
-	key = properties.getProperty('apiKey')
-	configurations = ['archives']
-	override = true
-	pkg {
-		repo = 'kotlin'
-		name = archivesBaseName
-		userOrg = properties.getProperty('org')
-		licenses = ['Apache-2.0']
-		vcsUrl = 'https://github.com/light-and-salt/kotloid.git'
-		publish = true
-	}
-}
-
-apply from: 'https://raw.githubusercontent.com/sky-uk/gradle-maven-plugin/master/gradle-mavenizer.gradle'

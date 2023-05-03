@@ -1,11 +1,11 @@
 @file:Suppress("DEPRECATION")
 
-package kr.or.lightsalt.kotloid.webkit
+package kr.es6.kotloid.webkit
 
 import android.net.Uri
 import android.os.Build
 import android.webkit.*
-import kr.or.lightsalt.each
+import kr.es6.kotlib.each
 import org.apache.http.*
 import org.joda.time.*
 import java.net.URLEncoder

@@ -1,6 +1,6 @@
 @file:Suppress("UNCHECKED_CAST")
 
-package kr.or.lightsalt.kotloid
+package kr.es6.kotloid
 
 import android.app.Activity
 import android.view.View

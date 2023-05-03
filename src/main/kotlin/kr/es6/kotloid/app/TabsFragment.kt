@@ -1,12 +1,12 @@
-package kr.or.lightsalt.kotloid.app
+package kr.es6.kotloid.app
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
-import kr.or.lightsalt.kotloid.R
-import kr.or.lightsalt.kotloid.lazyViewById
+import kr.es6.kotloid.R
+import kr.es6.kotloid.lazyViewById
 
 @Suppress("HasPlatformType", "MemberVisibilityCanBePrivate", "unused")
 open class TabsFragment<T>(contentLayoutId: Int = R.layout.fragment_tabs) : Fragment(contentLayoutId)

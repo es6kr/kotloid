@@ -1,10 +1,10 @@
-package kr.or.lightsalt.kotloid.app
+package kr.es6.kotloid.app
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.NavHostFragment
-import kr.or.lightsalt.kotloid.instantiateFragment
+import kr.es6.kotloid.instantiateFragment
 import kotlin.reflect.KClass
 
 @Suppress("unused")

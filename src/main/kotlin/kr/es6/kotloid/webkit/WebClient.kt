@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package kr.or.lightsalt.kotloid.webkit
+package kr.es6.kotloid.webkit
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -34,7 +34,7 @@ interface WebClient {
 			if (savedInstanceState != null) {
 				restoreState(savedInstanceState)
 			} else {
-				loadUrl(this@WebClient.url)
+				loadUrl(this@WebClient.url!!)
 			}
 		}
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

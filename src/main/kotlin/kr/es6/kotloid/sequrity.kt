@@ -1,4 +1,4 @@
-package kr.or.lightsalt.kotloid
+package kr.es6.kotloid
 
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException

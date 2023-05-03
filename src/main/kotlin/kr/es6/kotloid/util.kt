@@ -1,4 +1,4 @@
-package kr.or.lightsalt.kotloid
+package kr.es6.kotloid
 
 import android.util.Base64
 import android.util.Base64.*

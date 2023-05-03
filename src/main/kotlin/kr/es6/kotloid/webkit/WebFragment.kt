@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION", "HasPlatformType", "unused")
 
-package kr.or.lightsalt.kotloid.webkit
+package kr.es6.kotloid.webkit
 
 import android.content.*
 import android.os.*
@@ -9,7 +9,7 @@ import android.webkit.CookieSyncManager
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import im.delight.android.webview.AdvancedWebView
-import kr.or.lightsalt.kotloid.*
+import kr.es6.kotloid.*
 
 open class WebFragment : Fragment(), WebClient {
 	override var progressBar by lazyViewById<ProgressBar>(android.R.id.progress)
@@ -18,6 +18,7 @@ open class WebFragment : Fragment(), WebClient {
 	override var webView by lazyViewById<AdvancedWebView>(R.id.webView)
 	override val webViewClient by lazy { BaseWebViewClient() }
 
+	@Deprecated("Deprecated in Java")
 	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 		super.onActivityResult(requestCode, resultCode, data)
 		webView.onActivityResult(requestCode, resultCode, data)

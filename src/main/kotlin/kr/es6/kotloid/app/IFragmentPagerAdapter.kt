@@ -1,4 +1,4 @@
-package kr.or.lightsalt.kotloid.app
+package kr.es6.kotloid.app
 
 import android.util.SparseArray
 import androidx.fragment.app.Fragment

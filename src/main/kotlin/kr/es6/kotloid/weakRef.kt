@@ -1,4 +1,4 @@
-package kr.or.lightsalt.kotloid
+package kr.es6.kotloid
 
 import java.lang.ref.WeakReference
 import kotlin.reflect.KProperty

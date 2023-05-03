@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package kr.or.lightsalt.kotloid.webkit
+package kr.es6.kotloid.webkit
 
 import android.content.Intent
 import android.os.*
@@ -8,10 +8,11 @@ import android.webkit.CookieSyncManager
 import android.widget.ProgressBar
 import androidx.appcompat.app.*
 import im.delight.android.webview.AdvancedWebView
-import kr.or.lightsalt.kotloid.R
+import kr.es6.kotloid.R
 
+@Suppress("OverridingDeprecatedMember")
 open class WebActivity : AppCompatActivity(), WebClient {
-	override val progressBar by lazy { findViewById<ProgressBar?>(android.R.id.progress) }
+	override val progressBar: ProgressBar? by lazy { findViewById(android.R.id.progress) }
 	override val url: String? by lazy { intent.getStringExtra(EXTRA_URL) }
 	override val webChromeClient by lazy { BaseWebChromeClient() }
 	override val webView by lazy { findViewById<AdvancedWebView>(R.id.webView)!! }
