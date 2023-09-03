@@ -18,6 +18,7 @@ open class WebActivity : AppCompatActivity(), WebClient {
 	override val webView by lazy { findViewById<AdvancedWebView>(R.id.webView)!! }
 	override val webViewClient by lazy { BaseWebViewClient() }
 
+	@Deprecated("Deprecated in Java")
 	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 		super.onActivityResult(requestCode, resultCode, data)
 		webView.onActivityResult(requestCode, resultCode, data)
