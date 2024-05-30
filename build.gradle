@@ -85,7 +85,7 @@ dependencies {
 	} catch (Exception ignored) {
 		api 'com.github.es6kr:kotlib:v0.0.3'
 	}
-	api 'androidx.appcompat:appcompat:1.6.1'
+	api 'androidx.appcompat:appcompat:1.7.0'
 	api 'androidx.navigation:navigation-fragment-ktx:2.5.3'
 	api 'androidx.navigation:navigation-ui-ktx:2.5.3'
 	api 'com.github.delight-im:Android-AdvancedWebView:v3.2.1'
